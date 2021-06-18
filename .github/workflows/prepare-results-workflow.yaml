@@ -29,6 +29,8 @@ jobs:
       - name: Run main script
         run: |
           python main.py
-      - name: Debug
-        run: |
-          ls -l ./data/measurements/json
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          file_pattern: data/measurements/json/*.json
+          commit_message: 'data: update measurement data'
