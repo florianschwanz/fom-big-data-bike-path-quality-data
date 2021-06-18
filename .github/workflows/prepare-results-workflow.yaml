@@ -1,8 +1,7 @@
 name: Prepare results
 on:
-  push:
   schedule:
-    - cron:  '0 0 * * *'
+    - cron:  '0 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
