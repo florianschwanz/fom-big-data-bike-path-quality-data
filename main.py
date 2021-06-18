@@ -12,9 +12,11 @@ for p in library_paths:
 
 # Import library classes
 from data_downloader_firebase_storage import FirebaseStorageDownloader
+from data_transformer_geojson import DataTransformerGeoJson
 
 # Configuration
 RELOAD_DATA = True
+RECONVERT_DATA = True
 
 # Set script path
 file_path = os.path.realpath(__file__)
@@ -24,3 +26,9 @@ script_path = os.path.dirname(file_path)
 FirebaseStorageDownloader().run(
     results_path=script_path + "/data/measurements/json",
     reload=RELOAD_DATA)
+
+# Convert data into geojson
+DataTransformerGeoJson().run(
+    data_path=script_path + "/data/measurements/json",
+    results_path = script_path + "/data/measurements/geojson",
+    reconvert=RECONVERT_DATA)
