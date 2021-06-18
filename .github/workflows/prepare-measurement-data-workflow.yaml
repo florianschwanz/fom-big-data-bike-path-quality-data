@@ -1,4 +1,4 @@
-name: Prepare results
+name: Prepare measurement data
 on:
   schedule:
     - cron:  '0 * * * *'
