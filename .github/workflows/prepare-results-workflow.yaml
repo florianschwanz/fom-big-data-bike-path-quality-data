@@ -26,3 +26,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           pip install pyrebase
+      - name: Run main script
+        run: |
+          python main.py
+      - name: Debug
+        run: |
+          ls -l ./data/measurements/json
