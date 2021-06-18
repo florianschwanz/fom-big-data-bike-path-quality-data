@@ -1,0 +1,6 @@
+*.iml
+/.idea
+
+/lib/bike-path-quality-firebase-adminsdk-cgjm5-640ce5b722.json
+/data/
+/results/
