@@ -31,6 +31,6 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          file_pattern: data/measurements/json/*.json data/measurements/geojson/*.geojson
+          file_pattern: data/measurements/json/*.json data/measurements/geojson/*.geojson data/metadata/json/*.json
           commit_author: Florian Schwanz <florian.schwanz@interoberlin.de>
           commit_message: 'data: update measurement data'
