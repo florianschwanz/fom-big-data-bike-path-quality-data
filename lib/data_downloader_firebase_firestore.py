@@ -59,12 +59,18 @@ def download_data_once(coll_ref, results_path):
 
 class FirebaseFirestoreDownloader:
 
-    def run(self, results_path, reload=False):
+    def run(self, results_path, clean=False, reload=False):
         # Set script path
         script_path = os.path.dirname(__file__)
 
         # Make results path
         os.makedirs(results_path, exist_ok=True)
+
+        # Clean results path
+        if clean:
+            files = glob.glob(os.path.join(results_path, "*"))
+            for f in files:
+                os.remove(f)
 
         # Set project specific parameters
         firebase_database_url = "https://bike-path-quality.firebaseio.com/"

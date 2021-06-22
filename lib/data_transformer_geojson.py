@@ -60,9 +60,15 @@ def get_rider_name(user_data_uid):
 
 class DataTransformerGeoJson:
 
-    def run(self, data_path, results_path, reconvert=False):
+    def run(self, data_path, results_path, clean=False, reconvert=False):
         # Make results path
         os.makedirs(results_path, exist_ok=True)
+
+        # Clean results path
+        if clean:
+            files = glob.glob(os.path.join(results_path, "*"))
+            for f in files:
+                os.remove(f)
 
         for file_path in glob.iglob(data_path + "/*.json"):
 

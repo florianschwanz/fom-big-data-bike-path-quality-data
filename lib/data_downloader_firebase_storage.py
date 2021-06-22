@@ -1,3 +1,4 @@
+import glob
 import os
 from pathlib import Path
 
@@ -11,12 +12,18 @@ import pyrebase
 
 class FirebaseStorageDownloader:
 
-    def run(self, results_path, reload=False):
+    def run(self, results_path, clean=False, reload=False):
         # Set script path
         script_path = os.path.dirname(__file__)
 
         # Make results path
         os.makedirs(results_path, exist_ok=True)
+
+        # Clean results path
+        if clean:
+            files = glob.glob(os.path.join(results_path, "*"))
+            for f in files:
+                os.remove(f)
 
         firebase_private_key_file = "bike-path-quality-firebase-adminsdk-cgjm5-640ce5b722.json"
         config = {
