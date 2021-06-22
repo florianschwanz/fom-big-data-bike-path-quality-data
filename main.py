@@ -11,6 +11,7 @@ for p in library_paths:
         sys.path.insert(0, p)
 
 # Import library classes
+from data_downloader_firebase_firestore import FirebaseFirestoreDownloader
 from data_downloader_firebase_storage import FirebaseStorageDownloader
 from data_transformer_geojson import DataTransformerGeoJson
 
@@ -32,3 +33,8 @@ DataTransformerGeoJson().run(
     data_path=script_path + "/data/measurements/json",
     results_path = script_path + "/data/measurements/geojson",
     reconvert=RECONVERT_DATA)
+
+# Download data from Firebase Firestore
+FirebaseFirestoreDownloader().run(
+    results_path=script_path + "/data/metadata/json",
+    reload=RELOAD_DATA)
