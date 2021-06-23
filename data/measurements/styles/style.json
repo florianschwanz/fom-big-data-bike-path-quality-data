@@ -1,0 +1,10 @@
+{
+  "id": "measurement-layer",
+  "source": "measurement",
+  "type": "circle",
+  "layout": {},
+  "paint": {
+    "circle-radius": 5,
+    "circle-color": "#4caf50"
+  }
+}
