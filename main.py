@@ -13,6 +13,7 @@ for p in library_paths:
 # Import library classes
 from data_downloader_firebase_firestore import FirebaseFirestoreDownloader
 from data_downloader_firebase_storage import FirebaseStorageDownloader
+from data_transformer_csv import DataTransformerCsv
 from data_transformer_geojson import DataTransformerGeoJson
 
 # Configuration
@@ -28,13 +29,19 @@ FirebaseStorageDownloader().run(
     results_path=script_path + "/data/measurements/json",
     reload=RELOAD_DATA)
 
-# Convert data into geojson
-DataTransformerGeoJson().run(
-    data_path=script_path + "/data/measurements/json",
-    results_path = script_path + "/data/measurements/geojson",
-    reconvert=RECONVERT_DATA)
-
 # Download data from Firebase Firestore
 FirebaseFirestoreDownloader().run(
     results_path=script_path + "/data/metadata/json",
     reload=RELOAD_DATA)
+
+# Convert data into geojson
+DataTransformerGeoJson().run(
+    data_path=script_path + "/data/measurements/json",
+    results_path=script_path + "/data/measurements/geojson",
+    reconvert=RECONVERT_DATA)
+
+# Convert data into csv
+DataTransformerCsv().run(
+    data_path=script_path + "/data/measurements/json",
+    results_path=script_path + "/data/measurements/csv",
+    reconvert=RECONVERT_DATA)
