@@ -46,7 +46,7 @@ def write_bike_activity_samples_to_geojson(results_path, results_file_name, bike
         json_object = json.loads("%s" % collection)
         json_file.seek(0)
         json_file.truncate()
-        json_file.write(json.dumps(json_object, indent=2))
+        json_file.write(json.dumps(json_object, indent=2, sort_keys=True))
 
 
 def get_rider_name(user_data_uid):

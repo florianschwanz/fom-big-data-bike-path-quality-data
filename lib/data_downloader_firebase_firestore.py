@@ -32,7 +32,7 @@ def download_data(coll_ref, results_path):
             json_object = doc.to_dict()
             json_file.seek(0)
             json_file.truncate()
-            json_file.write(json.dumps(json_object, indent=2))
+            json_file.write(json.dumps(json_object, indent=2, sort_keys=True))
 
 
 def download_data_once(coll_ref, results_path):
