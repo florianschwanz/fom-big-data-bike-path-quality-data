@@ -19,6 +19,7 @@ from data_transformer_geojson import DataTransformerGeoJson
 # Configuration
 RELOAD_DATA = True
 RECONVERT_DATA = True
+CLEAN_DATA = True
 
 # Set script path
 file_path = os.path.realpath(__file__)
@@ -27,21 +28,25 @@ script_path = os.path.dirname(file_path)
 # Download data from Firebase Storage
 FirebaseStorageDownloader().run(
     results_path=script_path + "/data/measurements/json",
+    clean=CLEAN_DATA,
     reload=RELOAD_DATA)
 
 # Download data from Firebase Firestore
 FirebaseFirestoreDownloader().run(
     results_path=script_path + "/data/metadata/json",
+    clean=CLEAN_DATA,
     reload=RELOAD_DATA)
 
 # Convert data into geojson
 DataTransformerGeoJson().run(
     data_path=script_path + "/data/measurements/json",
     results_path=script_path + "/data/measurements/geojson",
+    clean=CLEAN_DATA,
     reconvert=RECONVERT_DATA)
 
 # Convert data into csv
 DataTransformerCsv().run(
     data_path=script_path + "/data/measurements/json",
     results_path=script_path + "/data/measurements/csv",
+    clean=CLEAN_DATA,
     reconvert=RECONVERT_DATA)
