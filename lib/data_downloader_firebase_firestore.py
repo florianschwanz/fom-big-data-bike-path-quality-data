@@ -28,9 +28,11 @@ def download_data(coll_ref, results_path):
 
         print("✔️ Downloading " + file_name)
 
-        json_file = open(results_path + "/" + file_name, "w")
-        json.dump(doc.to_dict(), json_file)
-        json_file.close()
+        with open(results_path + "/" + file_name, "w") as json_file:
+            json_object = doc.to_dict()
+            json_file.seek(0)
+            json_file.truncate()
+            json_file.write(json.dumps(json_object, indent=2))
 
 
 def download_data_once(coll_ref, results_path):

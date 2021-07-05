@@ -42,8 +42,11 @@ def write_bike_activity_samples_to_geojson(results_path, results_file_name, bike
 
     collection = FeatureCollection(features)
 
-    with open(results_path + "/" + results_file_name, "w") as f:
-        f.write("%s" % collection)
+    with open(results_path + "/" + results_file_name, "w") as json_file:
+        json_object = json.loads("%s" % collection)
+        json_file.seek(0)
+        json_file.truncate()
+        json_file.write(json.dumps(json_object, indent=2))
 
 
 def get_rider_name(user_data_uid):

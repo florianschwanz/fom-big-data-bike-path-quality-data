@@ -25,13 +25,13 @@ CLEAN_DATA = True
 file_path = os.path.realpath(__file__)
 script_path = os.path.dirname(file_path)
 
-# Download data from Firebase Storage
+# Download data
 FirebaseStorageDownloader().run(
     results_path=script_path + "/data/measurements/json",
     clean=CLEAN_DATA,
     reload=RELOAD_DATA)
 
-# Download data from Firebase Firestore
+# Download metadata from Firebase Firestore
 FirebaseFirestoreDownloader().run(
     results_path=script_path + "/data/metadata/json",
     clean=CLEAN_DATA,

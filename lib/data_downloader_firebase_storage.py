@@ -1,4 +1,5 @@
 import glob
+import json
 import os
 from pathlib import Path
 
@@ -44,5 +45,11 @@ class FirebaseStorageDownloader:
             if file_name.endswith(".json") and (not Path(file_path).exists() or reload):
                 print("✔️ Downloading " + file_name)
                 firebase.storage().child("measurements").child("json").child(file_name).download(file_path)
+
+                with open(file_path, 'r+') as json_file:
+                    json_object = json.load(json_file)
+                    json_file.seek(0)
+                    json_file.truncate()
+                    json_file.write(json.dumps(json_object, indent=2))
 
         print("FirebaseStorageDownloader finished.")
