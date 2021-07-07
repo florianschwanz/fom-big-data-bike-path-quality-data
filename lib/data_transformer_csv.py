@@ -36,7 +36,7 @@ def write_bike_activity_samples_to_csv(results_path, results_file_name, bike_act
         csv_writer = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow([
             # Descriptive values
-            'bike_activity_ui',
+            'bike_activity_uid',
             'bike_activity_sample_uid',
             'bike_activity_measurement',
             'bike_activity_measurement_timestamp',
