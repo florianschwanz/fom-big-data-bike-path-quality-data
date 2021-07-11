@@ -1,6 +1,11 @@
 *.iml
 /.idea
+
+*.DS_Store
+
 /venv/
+
+/lib/__pycache__/*
 /lib/bike-path-quality-firebase-adminsdk-cgjm5-640ce5b722.json
 /lib/telegram.config
 /results/
