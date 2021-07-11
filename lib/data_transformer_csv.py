@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 
 # Configuration
-USER_UID_STEFAN = "00000000-0000-0000-0000-000000000000"
+USER_UID_FLORIAN_L = "09f4d61e-25ed-429c-960a-0e698c4b51b0"
 
 
 def get_average_accelerometer_data(bike_activity_measurements):
@@ -97,8 +97,8 @@ def write_bike_activity_samples_to_csv(results_path, results_file_name, bike_act
 
 
 def get_rider_name(user_data_uid):
-    if user_data_uid == USER_UID_STEFAN:
-        return "Stefan P"
+    if user_data_uid == USER_UID_FLORIAN_L:
+        return "Florian L"
     else:
         return "Florian S"
 
