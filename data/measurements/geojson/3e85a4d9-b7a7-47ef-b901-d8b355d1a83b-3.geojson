@@ -1,0 +1,620 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          13.4600819,
+          52.4552162
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.9713829182454468,
+        "speed": 6.2974687,
+        "timestamp": 1626016979023
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4575681,
+          52.4585849
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.0174445609700384,
+        "speed": 7.2317123,
+        "timestamp": 1626017034932
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4617048,
+          52.4589906
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.1939935694321624,
+        "speed": 7.0275574,
+        "timestamp": 1626017091045
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4677679,
+          52.4588781
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.0271606994661253,
+        "speed": 7.4918213,
+        "timestamp": 1626017150003
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4718338,
+          52.4584356
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.9776502971552736,
+        "speed": 0.3651854,
+        "timestamp": 1626017202535
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4720141,
+          52.4595258
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.1041127147855532,
+        "speed": 5.9460526,
+        "timestamp": 1626017241571
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4712937,
+          52.4620455
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.045724924168252,
+        "speed": 8.314486,
+        "timestamp": 1626017301307
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4663504,
+          52.4649602
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.5653415215759834,
+        "speed": 2.5229723,
+        "timestamp": 1626017364216
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4637456,
+          52.4664041
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 2.8436161157053186,
+        "speed": 5.0439467,
+        "timestamp": 1626017406595
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4661723,
+          52.4679588
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.4043075689316546,
+        "speed": 5.460667,
+        "timestamp": 1626017447682
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4650717,
+          52.4700107
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.32233403591768034,
+        "speed": 4.3387775,
+        "timestamp": 1626017502903
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.464925,
+          52.4701015
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.4428226267629172,
+        "speed": 0.17633386,
+        "timestamp": 1626017531434
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4624259,
+          52.4711171
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.5862661770333766,
+        "speed": 8.499844,
+        "timestamp": 1626017572927
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4584262,
+          52.4727771
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.594255549695077,
+        "speed": 0.75700086,
+        "timestamp": 1626017618001
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4557942,
+          52.4738967
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.1988453384651834,
+        "speed": 8.660455,
+        "timestamp": 1626017660909
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4500563,
+          52.4768809
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.40396690495373644,
+        "speed": 0.6172115,
+        "timestamp": 1626017717242
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4501866,
+          52.4768517
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.21311793418612635,
+        "speed": 0.3620054,
+        "timestamp": 1626017743264
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4501938,
+          52.4768924
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.5833283530630918,
+        "speed": 0.22755484,
+        "timestamp": 1626017774353
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4493304,
+          52.4772311
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.2026875718600682,
+        "speed": 5.738253,
+        "timestamp": 1626017810075
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4447756,
+          52.47943
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.308497855042054,
+        "speed": 7.6451745,
+        "timestamp": 1626017863937
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4428035,
+          52.4804138
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.2514842328323452,
+        "speed": 8.071299,
+        "timestamp": 1626017899862
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4402741,
+          52.4816715
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.0119265446822352,
+        "speed": 3.2100215,
+        "timestamp": 1626017941847
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4356986,
+          52.4838839
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.6316170744909905,
+        "speed": 5.950658,
+        "timestamp": 1626018001045
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4338525,
+          52.4849014
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.2738264648395525,
+        "speed": 0.0015677934,
+        "timestamp": 1626018041684
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4338736,
+          52.4848869
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.17080053370646056,
+        "speed": 0.3041646,
+        "timestamp": 1626018071615
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4339103,
+          52.4848425
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.15123347258423345,
+        "speed": 0.35042065,
+        "timestamp": 1626018098085
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.433858,
+          52.4848512
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.6535099138875143,
+        "speed": 0.6184654,
+        "timestamp": 1626018123085
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4335278,
+          52.4849593
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.0659920348344174,
+        "speed": 3.8815212,
+        "timestamp": 1626018151922
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4302912,
+          52.486212
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.0236491544274298,
+        "speed": 5.716804,
+        "timestamp": 1626018190678
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4283547,
+          52.4867855
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.9274204920654605,
+        "speed": 3.3500426,
+        "timestamp": 1626018215984
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4247908,
+          52.4886248
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.1661997133723683,
+        "speed": 5.2221785,
+        "timestamp": 1626018274148
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4229927,
+          52.4914171
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.3016888128424915,
+        "speed": 7.3948245,
+        "timestamp": 1626018330048
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.420563,
+          52.495306
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.6284869773101843,
+        "speed": 7.4214892,
+        "timestamp": 1626018393566
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4200025,
+          52.4962869
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.5103243633532997,
+        "speed": 0.0074927956,
+        "timestamp": 1626018431944
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4216358,
+          52.4961115
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 2.096194142709351,
+        "speed": 5.25156,
+        "timestamp": 1626018468920
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4237726,
+          52.4964842
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 2.0967496222719655,
+        "speed": 1.7927732,
+        "timestamp": 1626018524925
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4243811,
+          52.4964754
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.1275860591900146,
+        "speed": 0.65203315,
+        "timestamp": 1626018558491
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4244232,
+          52.4964919
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.6226006374711912,
+        "speed": 0.82289493,
+        "timestamp": 1626018586390
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4244641,
+          52.496457
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.6410592135968096,
+        "speed": 0.004240146,
+        "timestamp": 1626018617134
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4244136,
+          52.4964828
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.3237109096533848,
+        "speed": 0.70083904,
+        "timestamp": 1626018643202
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.4244576,
+          52.4964503
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 1.5636724963902568,
+        "speed": 2.143753,
+        "timestamp": 1626018668194
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}
