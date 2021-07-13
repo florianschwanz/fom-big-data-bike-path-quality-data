@@ -19,42 +19,42 @@
   "bikeActivityBounds": {
     "center": {
       "altitude": 0.0,
-      "latitude": 52.43325705,
-      "longitude": 13.5802242
+      "latitude": 52.47585405,
+      "longitude": 13.4460083
     },
     "emptySpan": false,
-    "latNorth": 52.496996,
-    "latSouth": 52.3695181,
-    "latitudeSpan": 0.12747790000000236,
-    "lonEast": 13.7404459,
+    "latNorth": 52.4964919,
+    "latSouth": 52.4552162,
+    "latitudeSpan": 0.041275699999999915,
+    "lonEast": 13.4720141,
     "lonWest": 13.4200025,
-    "longitudeSpan": 0.3204433999999985,
+    "longitudeSpan": 0.05201160000000016,
     "northEast": {
       "altitude": 0.0,
-      "latitude": 52.496996,
-      "longitude": 13.7404459
+      "latitude": 52.4964919,
+      "longitude": 13.4720141
     },
     "northWest": {
       "altitude": 0.0,
-      "latitude": 52.496996,
+      "latitude": 52.4964919,
       "longitude": 13.4200025
     },
     "southEast": {
       "altitude": 0.0,
-      "latitude": 52.3695181,
-      "longitude": 13.7404459
+      "latitude": 52.4552162,
+      "longitude": 13.4720141
     },
     "southWest": {
       "altitude": 0.0,
-      "latitude": 52.3695181,
+      "latitude": 52.4552162,
       "longitude": 13.4200025
     },
     "span": {
-      "latitudeSpan": 0.12747790000000236,
-      "longitudeSpan": 0.3204433999999985
+      "latitudeSpan": 0.041275699999999915,
+      "longitudeSpan": 0.05201160000000016
     }
   },
-  "bikeActivitySamples": 341,
+  "bikeActivitySamples": 41,
   "userData": {
     "startTime": {
       "epochSecond": 1624826382,
