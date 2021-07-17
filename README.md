@@ -1,5 +1,5 @@
-[![Issues](https://img.shields.io/github/issues/florianschwanz/fom-big-data-bike-path-quality-data)](https://github.com/florianschwanz/fom-big-data-bike-path-quality-data/issues)
 [![Prepare measurement data](https://github.com/florianschwanz/fom-big-data-bike-path-quality-data/actions/workflows/prepare-measurement-data-workflow.yaml/badge.svg)](https://github.com/florianschwanz/fom-big-data-bike-path-quality-data/actions/workflows/prepare-measurement-data-workflow.yaml)
+[![Issues](https://img.shields.io/github/issues/florianschwanz/fom-big-data-bike-path-quality-data)](https://github.com/florianschwanz/fom-big-data-bike-path-quality-data/issues)
 
 <br />
 <p align="center">
