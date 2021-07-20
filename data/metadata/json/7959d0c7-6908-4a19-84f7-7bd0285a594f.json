@@ -1,0 +1,32 @@
+{
+  "bikeActivity": {
+    "bikeType": "road bicycle",
+    "endTime": {
+      "epochSecond": 1626708893,
+      "nano": 355000000
+    },
+    "phonePosition": "on bike mount",
+    "smoothnessType": "intermediate",
+    "startTime": {
+      "epochSecond": 1626708713,
+      "nano": 346000000
+    },
+    "surfaceType": "ground",
+    "trackingType": "MANUAL",
+    "uid": {
+      "leastSignificantBits": -8865481207495108273,
+      "mostSignificantBits": 8744249706395748889
+    },
+    "uploadStatus": "LOCAL"
+  },
+  "userData": {
+    "startTime": {
+      "epochSecond": 1623919190,
+      "nano": 508000000
+    },
+    "uid": {
+      "leastSignificantBits": -5318202161068369252,
+      "mostSignificantBits": -8720342143916816248
+    }
+  }
+}
