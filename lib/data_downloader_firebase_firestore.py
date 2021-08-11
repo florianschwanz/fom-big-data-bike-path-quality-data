@@ -26,7 +26,7 @@ def download_data(coll_ref, results_path):
     for doc in coll_ref.stream():
         file_name = doc.id + ".json"
 
-        print("✔️ Downloading " + file_name)
+        print("✓️ Downloading " + file_name)
 
         with open(results_path + "/" + file_name, "w") as json_file:
             json_object = doc.to_dict()
@@ -48,7 +48,7 @@ def download_data_once(coll_ref, results_path):
     for doc in coll_ref.where(firestore_v1.field_path.FieldPath.document_id(), "not-in", existing).stream():
         file_name = doc.id + ".json"
 
-        print("✔️ Downloading " + file_name)
+        print("✓️ Downloading " + file_name)
 
         json_file = open(results_path + "/" + file_name, "w")
         json.dump(doc.to_dict(), json_file)

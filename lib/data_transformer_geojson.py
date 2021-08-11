@@ -89,7 +89,7 @@ class DataTransformerGeoJson:
                 rider_name = get_rider_name(user_data_uid)
                 bike_activity_samples_with_measurements = data['bikeActivitySamplesWithMeasurements']
 
-                print("✔️ Converting into geojson " + file_name + " (" + rider_name + ")")
+                print("✓️ Converting into geojson " + file_name + " (" + rider_name + ")")
 
                 write_bike_activity_samples_to_geojson(
                     results_path=results_path,
