@@ -10,8 +10,8 @@
   <h1 align="center">Bike Path Quality (Piñata)</h1>
 
   <p align="center">
-    Data for <a href="https://github.com/florianschwanz/fom-big-data-bike-path-quality-model" target="_blank">bike path quality
-     analysis</a> 
+    Data for <a href="https://github.com/florianschwanz/fom-big-data-bike-path-quality-analytics" target="_blank">bike path quality
+     analytics</a> 
   </p>
 </p>
 
