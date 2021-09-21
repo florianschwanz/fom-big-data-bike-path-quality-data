@@ -17,6 +17,10 @@ def convert_bike_activity_to_csv_file(results_path, results_file_name, data):
     bike_activity_smoothness_type = bike_activity["smoothnessType"]
     bike_activity_phone_position = bike_activity["phonePosition"]
     bike_activity_bike_type = bike_activity["bikeType"]
+    bike_activity_flagged_lab_conditions = False
+
+    if "flaggedLabConditions" in bike_activity:
+        bike_activity_flagged_lab_conditions = bike_activity["flaggedLabConditions"]
 
     with open(results_path + "/" + results_file_name, "w", newline='') as csvfile:
         csv_writer = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
@@ -35,6 +39,7 @@ def convert_bike_activity_to_csv_file(results_path, results_file_name, data):
             'bike_activity_measurement_accelerometer_z',
             'bike_activity_phone_position',
             'bike_activity_bike_type',
+            'bike_activity_flagged_lab_conditions',
             # Output values
             'bike_activity_surface_type',
             'bike_activity_smoothness_type',
@@ -72,6 +77,7 @@ def convert_bike_activity_to_csv_file(results_path, results_file_name, data):
                     bike_activity_measurement_accelerometer_z,
                     bike_activity_phone_position,
                     bike_activity_bike_type,
+                    bike_activity_flagged_lab_conditions,
                     # Output values
                     bike_activity_sample_surface_type if bike_activity_sample_surface_type is not None else bike_activity_surface_type,
                     bike_activity_smoothness_type,
