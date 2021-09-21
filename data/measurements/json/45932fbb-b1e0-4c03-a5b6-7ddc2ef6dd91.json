@@ -2,6 +2,7 @@
   "bikeActivity": {
     "bikeType": "cyclo cross",
     "endTime": 1632058156335,
+    "flaggedLabConditions": true,
     "phonePosition": "on bike mount",
     "smoothnessType": "good",
     "startTime": 1632057964515,
