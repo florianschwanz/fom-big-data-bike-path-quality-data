@@ -1,0 +1,20 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          0.0,
+          0.0
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "accelerometer": 0.19967361014920107,
+        "speed": 0.0,
+        "timestamp": 1632096375355
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}

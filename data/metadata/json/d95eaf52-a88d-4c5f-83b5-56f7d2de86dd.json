@@ -1,0 +1,29 @@
+{
+  "bikeActivity": {
+    "bikeType": "electric bicycle",
+    "endTime": {
+      "epochSecond": 1632096378,
+      "nano": 826000000
+    },
+    "flaggedLabConditions": true,
+    "phonePosition": "in pants pocket",
+    "smoothnessType": "intermediate",
+    "startTime": {
+      "epochSecond": 1632096375,
+      "nano": 300000000
+    },
+    "surfaceType": "concrete lanes",
+    "trackingType": "MANUAL",
+    "uid": "d95eaf52-a88d-4c5f-83b5-56f7d2de86dd",
+    "uploadStatus": "CHANGED_AFTER_UPLOAD"
+  },
+  "bikeActivityBounds": null,
+  "bikeActivitySamples": 1,
+  "userData": {
+    "startTime": {
+      "epochSecond": 1632096372,
+      "nano": 679000000
+    },
+    "uid": "8ab043b2-9e99-44bc-a011-17146c2ca1b0"
+  }
+}
