@@ -5,7 +5,7 @@
       "epochSecond": 1632422412,
       "nano": 917000000
     },
-    "flaggedLabConditions": false,
+    "flaggedLabConditions": true,
     "phonePosition": "on bike mount",
     "smoothnessType": "intermediate",
     "startTime": {
@@ -15,7 +15,7 @@
     "surfaceType": "sett",
     "trackingType": "MANUAL",
     "uid": "0cbef7ff-c055-4330-b11d-7108f5d00f4d",
-    "uploadStatus": "LOCAL"
+    "uploadStatus": "CHANGED_AFTER_UPLOAD"
   },
   "bikeActivityBounds": {
     "center": {
