@@ -1,0 +1,66 @@
+{
+  "bikeActivity": {
+    "bikeType": "cyclo cross",
+    "endTime": {
+      "epochSecond": 1633173699,
+      "nano": 780000000
+    },
+    "flaggedLabConditions": true,
+    "phonePosition": "on bike mount",
+    "smoothnessType": "excellent",
+    "startTime": {
+      "epochSecond": 1633172818,
+      "nano": 279000000
+    },
+    "surfaceType": "asphalt",
+    "trackingType": "MANUAL",
+    "uid": "1f3b5e1e-ffc4-4941-b268-04416bbafb19",
+    "uploadStatus": "LOCAL"
+  },
+  "bikeActivityBounds": {
+    "center": {
+      "altitude": 0.0,
+      "latitude": 52.2128721,
+      "longitude": 14.44465895
+    },
+    "emptySpan": false,
+    "latNorth": 52.2342648,
+    "latSouth": 52.1914794,
+    "latitudeSpan": 0.04278539999999964,
+    "lonEast": 14.4635387,
+    "lonWest": 14.4257792,
+    "longitudeSpan": 0.03775950000000172,
+    "northEast": {
+      "altitude": 0.0,
+      "latitude": 52.2342648,
+      "longitude": 14.4635387
+    },
+    "northWest": {
+      "altitude": 0.0,
+      "latitude": 52.2342648,
+      "longitude": 14.4257792
+    },
+    "southEast": {
+      "altitude": 0.0,
+      "latitude": 52.1914794,
+      "longitude": 14.4635387
+    },
+    "southWest": {
+      "altitude": 0.0,
+      "latitude": 52.1914794,
+      "longitude": 14.4257792
+    },
+    "span": {
+      "latitudeSpan": 0.04278539999999964,
+      "longitudeSpan": 0.03775950000000172
+    }
+  },
+  "bikeActivitySamples": 36,
+  "userData": {
+    "startTime": {
+      "epochSecond": 1632837432,
+      "nano": 181000000
+    },
+    "uid": "47bf4410-6d0e-4a09-8938-7d2397ef30f8"
+  }
+}
