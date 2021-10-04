@@ -5,6 +5,12 @@
   "layout": {},
   "paint": {
     "circle-radius": 5,
-    "circle-color": "#4caf50"
+    "circle-color": {
+      "property": "accelerometer",
+      "stops": [
+        [1.0, "#4caf50"],
+        [10.0, "#f44336"]
+      ]
+    }
   }
 }
