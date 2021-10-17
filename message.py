@@ -35,7 +35,7 @@ def main(argv):
             print("message.py -m \"<message>\"")
             sys.exit()
         elif opt in ("-m", "--message"):
-            TelegramLogger.log_line(arg)
+            TelegramLogger().log_line(arg)
 
 
 if __name__ == "__main__":
