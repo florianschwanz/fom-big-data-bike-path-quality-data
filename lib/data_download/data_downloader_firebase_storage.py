@@ -1,9 +1,11 @@
 import glob
+import inspect
 import json
 import os
 from pathlib import Path
 
 import pyrebase
+from tracking_decorator import TrackingDecorator
 
 
 #
@@ -13,7 +15,8 @@ import pyrebase
 
 class FirebaseStorageDownloader:
 
-    def run(self, results_path, clean=False, reload=False):
+    @TrackingDecorator.track_time
+    def run(self, logger, results_path, clean=False, reload=False):
         # Set script path
         script_path = os.path.dirname(__file__)
 
@@ -43,7 +46,7 @@ class FirebaseStorageDownloader:
             file_path = results_path + "/" + file_name
 
             if file_name.endswith(".json") and (not Path(file_path).exists() or reload):
-                print("✓️ Downloading " + file_name)
+                logger.log_line("✓️ Downloading " + file_name)
                 firebase.storage().child("measurements").child("json").child(file_name).download(file_path)
 
                 with open(file_path, 'r+') as json_file:
@@ -52,4 +55,7 @@ class FirebaseStorageDownloader:
                     json_file.truncate()
                     json_file.write(json.dumps(json_object, indent=2, sort_keys=True))
 
-        print("FirebaseStorageDownloader finished.")
+        class_name = self.__class__.__name__
+        function_name = inspect.currentframe().f_code.co_name
+
+        logger.log_line(class_name + "." + function_name + " finished")

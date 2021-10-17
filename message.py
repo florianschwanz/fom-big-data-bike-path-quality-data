@@ -4,7 +4,7 @@ import sys
 
 # Make library available in path
 library_paths = [
-    os.path.join(os.getcwd(), 'lib')
+    os.path.join(os.getcwd(), 'lib', 'log')
 ]
 
 for p in library_paths:
@@ -35,7 +35,7 @@ def main(argv):
             print("message.py -m \"<message>\"")
             sys.exit()
         elif opt in ("-m", "--message"):
-            TelegramLogger.log_message(arg)
+            TelegramLogger.log_line(arg)
 
 
 if __name__ == "__main__":

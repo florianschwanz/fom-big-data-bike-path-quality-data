@@ -2,12 +2,10 @@ import glob
 import json
 import math
 import os
-from pathlib import Path
-
+import inspect
 from geojson import FeatureCollection
-
-# Configuration
-USER_UID_FLORIAN_L = "09f4d61e-25ed-429c-960a-0e698c4b51b0"
+from pathlib import Path
+from tracking_decorator import TrackingDecorator
 
 
 def get_average_accelerometer_data(bike_activity_measurements):
@@ -31,7 +29,8 @@ def write_bike_activity_samples_to_geojson(results_path, results_file_name, bike
         bike_activity_sample = bike_activity_sample_with_measurements["bikeActivitySample"]
         bike_activity_measurements = bike_activity_sample_with_measurements["bikeActivityMeasurements"]
 
-        feature["geometry"] = {"type": "Point", "coordinates": [bike_activity_sample["lon"], bike_activity_sample["lat"]]}
+        feature["geometry"] = {"type": "Point",
+                               "coordinates": [bike_activity_sample["lon"], bike_activity_sample["lat"]]}
         feature["type"] = "Feature"
         feature["properties"] = {
             "timestamp": bike_activity_sample["timestamp"],
@@ -49,13 +48,6 @@ def write_bike_activity_samples_to_geojson(results_path, results_file_name, bike
         json_file.write(json.dumps(json_object, indent=2, sort_keys=True))
 
 
-def get_rider_name(user_data_uid):
-    if user_data_uid == USER_UID_FLORIAN_L:
-        return "Florian L"
-    else:
-        return "Florian S"
-
-
 #
 # Main
 #
@@ -63,7 +55,8 @@ def get_rider_name(user_data_uid):
 
 class DataTransformerGeoJson:
 
-    def run(self, data_path, results_path, clean=False, reconvert=False):
+    @TrackingDecorator.track_time
+    def run(self, logger, data_path, results_path, clean=False, reconvert=False):
         # Make results path
         os.makedirs(results_path, exist_ok=True)
 
@@ -86,10 +79,9 @@ class DataTransformerGeoJson:
                 data = json.load(file)
 
                 user_data_uid = data['userData']['uid']
-                rider_name = get_rider_name(user_data_uid)
                 bike_activity_samples_with_measurements = data['bikeActivitySamplesWithMeasurements']
 
-                print("✓️ Converting into geojson " + file_name + " (" + rider_name + ")")
+                logger.log_line("✓️ Converting into geojson " + file_name)
 
                 write_bike_activity_samples_to_geojson(
                     results_path=results_path,
@@ -97,4 +89,8 @@ class DataTransformerGeoJson:
                     bike_activity_samples_with_measurements=bike_activity_samples_with_measurements
                 )
 
-        print("DataTransformerGeoJson finished.")
+        class_name = self.__class__.__name__
+        function_name = inspect.currentframe().f_code.co_name
+
+        logger.log_line(
+                class_name + "." + function_name + " finished")

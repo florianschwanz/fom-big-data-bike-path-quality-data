@@ -5,7 +5,7 @@ import telegram_send
 
 class TelegramLogger:
 
-    def log_message(message):
+    def log_line(self, message):
         telegram_line = message
 
         # Set script path

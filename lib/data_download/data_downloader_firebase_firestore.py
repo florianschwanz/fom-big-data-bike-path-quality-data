@@ -1,10 +1,12 @@
 import glob
+import inspect
 import json
 import os
 
 import firebase_admin
 from firebase_admin import credentials, firestore
 from google.cloud import firestore_v1 as firestore_v1
+from tracking_decorator import TrackingDecorator
 
 
 def load_private_key(script_path, firebase_private_key_file):
@@ -20,13 +22,13 @@ def open_database_connection(cred, firebase_database_url, firebase_collection_na
     return coll_ref
 
 
-def download_data(coll_ref, results_path):
+def download_data(logger, coll_ref, results_path):
     """Downloads data from Firebase Firestore"""
 
     for doc in coll_ref.stream():
         file_name = doc.id + ".json"
 
-        print("✓️ Downloading " + file_name)
+        logger.log_line("✓️ Downloading " + file_name)
 
         with open(results_path + "/" + file_name, "w") as json_file:
             json_object = doc.to_dict()
@@ -35,7 +37,7 @@ def download_data(coll_ref, results_path):
             json_file.write(json.dumps(json_object, indent=2, sort_keys=True))
 
 
-def download_data_once(coll_ref, results_path):
+def download_data_once(logger, coll_ref, results_path):
     """
     Downloads data from Firebase Firestore only if it has not been downloaded already
     Beware: This will not work with more than 10 arguments
@@ -43,12 +45,13 @@ def download_data_once(coll_ref, results_path):
 	    details = "'NOT_IN' supports up to 10 comparison values."
     """
 
-    existing = list(map(lambda e: coll_ref.document(os.path.basename(e).replace('.json', '')), glob.glob(results_path + "/*.json")))
+    existing = list(
+        map(lambda e: coll_ref.document(os.path.basename(e).replace('.json', '')), glob.glob(results_path + "/*.json")))
 
     for doc in coll_ref.where(firestore_v1.field_path.FieldPath.document_id(), "not-in", existing).stream():
         file_name = doc.id + ".json"
 
-        print("✓️ Downloading " + file_name)
+        logger.log_line("✓️ Downloading " + file_name)
 
         json_file = open(results_path + "/" + file_name, "w")
         json.dump(doc.to_dict(), json_file)
@@ -61,7 +64,8 @@ def download_data_once(coll_ref, results_path):
 
 class FirebaseFirestoreDownloader:
 
-    def run(self, results_path, clean=False, reload=False):
+    @TrackingDecorator.track_time
+    def run(self, logger, results_path, clean=False, reload=False):
         # Set script path
         script_path = os.path.dirname(__file__)
 
@@ -87,8 +91,11 @@ class FirebaseFirestoreDownloader:
 
         # Download data
         if reload:
-            download_data(coll_ref, results_path)
+            download_data(logger, coll_ref, results_path)
         else:
-            download_data_once(coll_ref, results_path)
+            download_data_once(logger, coll_ref, results_path)
 
-        print("FirebaseFirestoreDownloader finished.")
+        class_name = self.__class__.__name__
+        function_name = inspect.currentframe().f_code.co_name
+
+        logger.log_line(class_name + "." + function_name + " finished")

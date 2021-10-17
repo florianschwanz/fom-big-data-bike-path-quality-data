@@ -2,10 +2,9 @@ import csv
 import glob
 import json
 import os
+import inspect
 from pathlib import Path
-
-# Configuration
-USER_UID_FLORIAN_L = "09f4d61e-25ed-429c-960a-0e698c4b51b0"
+from tracking_decorator import TrackingDecorator
 
 
 def convert_bike_activity_to_csv_file(results_path, results_file_name, data):
@@ -51,7 +50,8 @@ def convert_bike_activity_to_csv_file(results_path, results_file_name, data):
             bike_activity_measurements = bike_activity_sample_with_measurements["bikeActivityMeasurements"]
 
             bike_activity_sample_uid = bike_activity_sample["uid"]
-            bike_activity_sample_surface_type = bike_activity_sample["surfaceType"] if "surfaceType" in bike_activity_sample else None
+            bike_activity_sample_surface_type = bike_activity_sample[
+                "surfaceType"] if "surfaceType" in bike_activity_sample else None
 
             for bike_activity_measurement in bike_activity_measurements:
                 bike_activity_measurement_uid = bike_activity_measurement["uid"]
@@ -84,13 +84,6 @@ def convert_bike_activity_to_csv_file(results_path, results_file_name, data):
                 ])
 
 
-def get_rider_name(user_data_uid):
-    if user_data_uid == USER_UID_FLORIAN_L:
-        return "Florian L"
-    else:
-        return "Florian S"
-
-
 #
 # Main
 #
@@ -98,7 +91,8 @@ def get_rider_name(user_data_uid):
 
 class DataTransformerCsv:
 
-    def run(self, data_path, results_path, clean=False, reconvert=False):
+    @TrackingDecorator.track_time
+    def run(self, logger, data_path, results_path, clean=False, reconvert=False):
         # Make results path
         os.makedirs(results_path, exist_ok=True)
 
@@ -120,7 +114,11 @@ class DataTransformerCsv:
                 file = open(file_path)
                 data = json.load(file)
 
-                print("✓️ Converting into csv " + file_name)
+                logger.log_line("✓️ Converting into csv " + file_name)
                 convert_bike_activity_to_csv_file(results_path, results_file_name, data)
 
-        print("DataTransformer finished.")
+        class_name = self.__class__.__name__
+        function_name = inspect.currentframe().f_code.co_name
+
+        logger.log_line(
+                class_name + "." + function_name + " finished")
