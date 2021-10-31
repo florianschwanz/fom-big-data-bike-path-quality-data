@@ -50,4 +50,4 @@ jobs:
           commit_message: "data: update measurement data"
       - name: Send Telegram message if changes have been committed
         if: steps.commit-channges.outputs.changes_detected == 'true'
-        run: python message.py -m "🥑 New bike activities uploaded"
+        run: python message.py

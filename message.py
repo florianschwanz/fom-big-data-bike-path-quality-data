@@ -4,7 +4,9 @@ import sys
 
 # Make library available in path
 library_paths = [
-    os.path.join(os.getcwd(), 'lib', 'log')
+    os.path.join(os.getcwd(), 'lib'),
+    os.path.join(os.getcwd(), 'lib', 'log'),
+    os.path.join(os.getcwd(), 'lib', 'data_statistics')
 ]
 
 for p in library_paths:
@@ -12,30 +14,56 @@ for p in library_paths:
         sys.path.insert(0, p)
 
 # Import library classes
-from telegram_logger import TelegramLogger
+from logger_facade import LoggerFacade
+from input_data_statistics import InputDataStatistics
 
-# Configuration
-RELOAD_DATA = True
-RECONVERT_DATA = True
-CLEAN_DATA = True
 
-# Set script path
-file_path = os.path.realpath(__file__)
-script_path = os.path.dirname(file_path)
-
+#
+# Main
+#
 
 def main(argv):
+    # Set default values
+    measurement_speed_limit = 5.0
+
+    # Read command line arguments
     try:
-        opts, args = getopt.getopt(argv, "m:", ["message="])
+        opts, args = getopt.getopt(argv, "h", ["help"])
     except getopt.GetoptError:
-        print("message.py -m \"<message>\"")
+        print(
+            "main.py --help")
         sys.exit(2)
     for opt, arg in opts:
-        if opt == '-h':
-            print("message.py -m \"<message>\"")
+        if opt in ("-h", "--help"):
+            print("message.py")
+            print("--help                           show this help")
             sys.exit()
-        elif opt in ("-m", "--message"):
-            TelegramLogger().log_line(arg)
+
+    # Set paths
+    file_path = os.path.realpath(__file__)
+    script_path = os.path.dirname(file_path)
+    log_path = os.path.join(script_path, "log")
+    data_path = os.path.join(script_path, "data")
+
+    # Initialize logger
+    logger = LoggerFacade(log_path, console=True, file=False)
+
+    #
+    # Statistics
+    #
+
+    surface_types = InputDataStatistics().run(
+        logger=logger,
+        data_path=os.path.join(data_path, "measurements", "csv"),
+        measurement_speed_limit=measurement_speed_limit
+    )
+
+    log_line = "🥑 New bike activities uploaded, thereof useful"
+
+    for bike_activity_surface_type, count in surface_types.items():
+        log_line = log_line + "\n* " + bike_activity_surface_type + ": " + str(count)
+
+    logger.log_line(log_line, telegram=True)
 
 
 if __name__ == "__main__":

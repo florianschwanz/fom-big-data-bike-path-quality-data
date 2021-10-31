@@ -4,10 +4,6 @@ import glob
 from tracking_decorator import TrackingDecorator
 
 
-#
-# Main
-#
-
 def get_bike_activity_measurement_speed_min(slice):
     bike_activity_measurement_speed_min = None
 
@@ -19,6 +15,10 @@ def get_bike_activity_measurement_speed_min(slice):
 
     return bike_activity_measurement_speed_min
 
+
+#
+# Main
+#
 
 class InputDataStatistics:
 
@@ -60,9 +60,4 @@ class InputDataStatistics:
 
                 surface_types[bike_activity_surface_type] += 1
 
-        log_line = "Useful samples tracked"
-
-        for bike_activity_surface_type, count in surface_types.items():
-            log_line = log_line + "\n* " + bike_activity_surface_type + ": " + str(count)
-
-        logger.log_line(log_line, telegram=True)
+        return surface_types
