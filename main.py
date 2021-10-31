@@ -34,8 +34,12 @@ def main(argv):
     reconvert_data = True
     clean_data = True
 
-    slice_width = 500
-    window_step = 20
+    slicing_configurations = [
+        (500, 50),
+        (250, 25),
+        (100, 10),
+    ]
+    measurement_interval = 0.05
 
     # Read command line arguments
     try:
@@ -101,15 +105,22 @@ def main(argv):
     # Data pre-processing
     #
 
-    SlidingWindowDataSplitter().run(
-        logger=logger,
-        data_path=os.path.join(data_path, "measurements", "csv"),
-        slice_width=slice_width,
-        window_step=window_step,
-        results_path=os.path.join(data_path, "measurements", "slices",
-                                  "width" + str(slice_width) + "_step" + str(window_step)),
-        clean=clean_data
-    )
+    for slice_width, window_step in slicing_configurations:
+        overlap = (slice_width - window_step) / slice_width
+        logger.log_line(
+            "* slice width " + str(slice_width) + "(" + str(slice_width * measurement_interval) + "s) window step " + str(
+                window_step) + " overlap " + str(overlap))
+
+    for slice_width, window_step in slicing_configurations:
+        SlidingWindowDataSplitter().run(
+            logger=logger,
+            data_path=os.path.join(data_path, "measurements", "csv"),
+            slice_width=slice_width,
+            window_step=window_step,
+            results_path=os.path.join(data_path, "measurements", "slices",
+                                      "width" + str(slice_width) + "_step" + str(window_step)),
+            clean=clean_data
+        )
 
 
 if __name__ == "__main__":
