@@ -106,19 +106,14 @@ def main(argv):
     #
 
     for slice_width, window_step in slicing_configurations:
-        overlap = (slice_width - window_step) / slice_width
-        logger.log_line(
-            "* slice width " + str(slice_width) + "(" + str(slice_width * measurement_interval) + "s) window step " + str(
-                window_step) + " overlap " + str(overlap))
-
-    for slice_width, window_step in slicing_configurations:
         SlidingWindowDataSplitter().run(
             logger=logger,
             data_path=os.path.join(data_path, "measurements", "csv"),
-            slice_width=slice_width,
-            window_step=window_step,
             results_path=os.path.join(data_path, "measurements", "slices",
                                       "width" + str(slice_width) + "_step" + str(window_step)),
+            slice_width=slice_width,
+            window_step=window_step,
+            measurement_interval=measurement_interval,
             clean=clean_data
         )
 

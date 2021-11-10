@@ -21,7 +21,7 @@ def rolling_window(array, window):
 class SlidingWindowDataSplitter:
 
     @TrackingDecorator.track_time
-    def run(self, logger, data_path, slice_width, window_step, results_path, clean=False):
+    def run(self, logger, data_path, results_path, slice_width, window_step, measurement_interval, clean=False):
 
         # Make results path
         os.makedirs(results_path, exist_ok=True)
@@ -31,6 +31,11 @@ class SlidingWindowDataSplitter:
             files = glob.glob(os.path.join(results_path, "*.csv"))
             for f in files:
                 os.remove(f)
+
+        overlap = (slice_width - window_step) / slice_width
+        logger.log_line(
+            "* slice width " + str(slice_width) + "(" + str(slice_width * measurement_interval) + "s) window step " + str(
+                window_step) + " overlap " + str(overlap))
 
         slices_count_total = 0
 
