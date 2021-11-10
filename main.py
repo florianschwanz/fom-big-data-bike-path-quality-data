@@ -35,6 +35,7 @@ def main(argv):
     clean_data = True
 
     slicing_configurations = [
+        (500, 500),
         (500, 50),
         (250, 25),
         (100, 10),
