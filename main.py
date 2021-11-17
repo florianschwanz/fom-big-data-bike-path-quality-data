@@ -2,13 +2,16 @@ import getopt
 import os
 import sys
 
+file_path = os.path.realpath(__file__)
+script_path = os.path.dirname(file_path)
+
 # Make library available in path
 library_paths = [
-    os.path.join(os.getcwd(), 'lib'),
-    os.path.join(os.getcwd(), 'lib', 'log'),
-    os.path.join(os.getcwd(), 'lib', 'data_download'),
-    os.path.join(os.getcwd(), 'lib', 'data_transformation'),
-    os.path.join(os.getcwd(), 'lib', 'data_pre_processing'),
+    os.path.join(script_path, 'lib'),
+    os.path.join(script_path, 'lib', 'log'),
+    os.path.join(script_path, 'lib', 'data_download'),
+    os.path.join(script_path, 'lib', 'data_transformation'),
+    os.path.join(script_path, 'lib', 'data_pre_processing'),
 ]
 
 for p in library_paths:
@@ -56,8 +59,6 @@ def main(argv):
             sys.exit()
 
     # Set paths
-    file_path = os.path.realpath(__file__)
-    script_path = os.path.dirname(file_path)
     log_path = os.path.join(script_path, "log")
     data_path = os.path.join(script_path, "data")
 
