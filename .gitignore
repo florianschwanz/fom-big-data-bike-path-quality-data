@@ -5,7 +5,7 @@
 
 /venv/
 
-/lib/__pycache__/*
+**/__pycache__
 /lib/data_download/bike-path-quality-firebase-adminsdk-cgjm5-640ce5b722.json
 /lib/log/telegram.config
 /results/
