@@ -55,7 +55,10 @@ def main(argv):
     surface_types = InputDataStatistics().run(
         logger=logger,
         data_path=os.path.join(data_path, "measurements", "csv"),
-        measurement_speed_limit=measurement_speed_limit
+        measurement_speed_limit=measurement_speed_limit,
+        filter_lab_conditions=True,
+        filter_speed=True,
+        filter_surface_types=True
     )
 
     log_line = "🥑 New bike activities uploaded, thereof useful"

@@ -28,6 +28,7 @@ from data_downloader_firebase_storage import FirebaseStorageDownloader
 from data_loader import DataLoader
 from data_filterer import DataFilterer
 from bike_activity_surface_type_plotter import BikeActivitySurfaceTypePlotter
+from input_data_statistics import InputDataStatistics
 from data_transformer_csv import DataTransformerCsv
 from data_transformer_geojson import DataTransformerGeoJson
 from sliding_window_data_splitter import SlidingWindowDataSplitter
@@ -154,7 +155,28 @@ def main(argv):
         description="Distribution of surface types in raw data",
         xlabel="surface type",
         clean=True,
-        quiet=False
+        quiet=True
+    )
+
+    surface_types = InputDataStatistics().run(
+        logger=logger,
+        data_path=os.path.join(data_path, "measurements", "csv"),
+        measurement_speed_limit=measurement_speed_limit,
+        filter_lab_conditions=False,
+        filter_speed=False,
+        filter_surface_types=True
+    )
+
+    BikeActivitySurfaceTypePlotter().run_bar(
+        logger=logger,
+        data=surface_types,
+        results_path=data_path,
+        file_name="surface_type_raw",
+        title="Surface type distribution (raw)",
+        description="Distribution of surface types in raw data",
+        xlabel="surface type",
+        clean=True,
+        quiet=True
     )
 
 

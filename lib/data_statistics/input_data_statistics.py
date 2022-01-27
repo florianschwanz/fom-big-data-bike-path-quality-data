@@ -23,7 +23,8 @@ def get_bike_activity_measurement_speed_min(slice):
 class InputDataStatistics:
 
     @TrackingDecorator.track_time
-    def run(self, logger, data_path, measurement_speed_limit):
+    def run(self, logger, data_path, measurement_speed_limit, filter_lab_conditions=False, filter_speed=False,
+            filter_surface_types=False):
 
         slices = {}
         surface_types = {}
@@ -47,13 +48,25 @@ class InputDataStatistics:
                     # Append row
                     slices[bike_activity_sample_uid].append(row)
 
+        valid_surface_types = [
+            "asphalt",
+            "concrete lanes",
+            "concrete plates",
+            "paving stones",
+            "sett",
+            "compacted",
+            "fine gravel",
+            "gravel"
+        ]
+
         for bike_activity_sample_uid, slice in slices.items():
             bike_activity_flagged_lab_conditions = slice[0]["bike_activity_flagged_lab_conditions"]
             bike_activity_surface_type = slice[0]["bike_activity_surface_type"]
             bike_activity_measurement_speed_min = get_bike_activity_measurement_speed_min(slice)
 
-            if bike_activity_flagged_lab_conditions == "True" and \
-                    bike_activity_measurement_speed_min * 3.6 >= measurement_speed_limit:
+            if (not filter_lab_conditions or bike_activity_flagged_lab_conditions == "True") \
+                    and (not filter_speed or bike_activity_measurement_speed_min * 3.6 >= measurement_speed_limit) \
+                    and (not filter_surface_types or bike_activity_surface_type in valid_surface_types):
 
                 if bike_activity_surface_type not in surface_types:
                     surface_types[bike_activity_surface_type] = 0
