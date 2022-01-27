@@ -9,9 +9,12 @@ script_path = os.path.dirname(file_path)
 library_paths = [
     os.path.join(script_path, 'lib'),
     os.path.join(script_path, 'lib', 'log'),
+    os.path.join(script_path, 'lib', 'plotters'),
     os.path.join(script_path, 'lib', 'data_download'),
-    os.path.join(script_path, 'lib', 'data_transformation'),
     os.path.join(script_path, 'lib', 'data_pre_processing'),
+    os.path.join(script_path, 'lib', 'data_preparation'),
+    os.path.join(script_path, 'lib', 'data_statistics'),
+    os.path.join(script_path, 'lib', 'data_transformation')
 ]
 
 for p in library_paths:
@@ -22,6 +25,9 @@ for p in library_paths:
 from logger_facade import LoggerFacade
 from data_downloader_firebase_firestore import FirebaseFirestoreDownloader
 from data_downloader_firebase_storage import FirebaseStorageDownloader
+from data_loader import DataLoader
+from data_filterer import DataFilterer
+from bike_activity_surface_type_plotter import BikeActivitySurfaceTypePlotter
 from data_transformer_csv import DataTransformerCsv
 from data_transformer_geojson import DataTransformerGeoJson
 from sliding_window_data_splitter import SlidingWindowDataSplitter
@@ -44,6 +50,9 @@ def main(argv):
         (100, 10),
     ]
     measurement_interval = 0.05
+
+    # Set default values
+    measurement_speed_limit = 5.0
 
     # Read command line arguments
     try:
@@ -118,6 +127,35 @@ def main(argv):
             measurement_interval=measurement_interval,
             clean=clean_data
         )
+
+    #
+    # Statistics
+    #
+
+    dataframes = DataLoader().run(
+        logger=logger,
+        data_path=os.path.join(data_path, "measurements", "slices", "width" + str(500) + "_step" + str(500)),
+        limit=None,
+        quiet=False
+    )
+
+    filtered_dataframes = DataFilterer().run(
+        logger=logger, dataframes=dataframes, slice_width=500,
+                                             measurement_speed_limit=measurement_speed_limit,
+                                             keep_unflagged_lab_conditions=False, quiet=True)
+
+    BikeActivitySurfaceTypePlotter().run(
+        logger=logger,
+        dataframes=filtered_dataframes,
+        slice_width=500,
+        results_path=data_path,
+        file_name="surface_type_raw",
+        title="Surface type distribution (raw)",
+        description="Distribution of surface types in raw data",
+        xlabel="surface type",
+        clean=True,
+        quiet=False
+    )
 
 
 if __name__ == "__main__":

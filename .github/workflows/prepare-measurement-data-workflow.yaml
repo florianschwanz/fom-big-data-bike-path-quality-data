@@ -33,6 +33,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           pip install numpy
+          pip install pandas
+          pip install tqdm
+          pip install matplotlib
           pip install pyrebase
           pip install geojson
           pip install firebase-admin
