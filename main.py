@@ -46,9 +46,9 @@ def main(argv):
 
     slicing_configurations = [
         (500, 500),
-        (500, 50),
-        (250, 25),
-        (100, 10),
+        # (500, 50),
+        # (250, 25),
+        # (100, 10),
     ]
     measurement_interval = 0.05
 
