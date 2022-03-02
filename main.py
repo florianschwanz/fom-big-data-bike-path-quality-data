@@ -141,9 +141,13 @@ def main(argv):
     )
 
     filtered_dataframes = DataFilterer().run(
-        logger=logger, dataframes=dataframes, slice_width=500,
-                                             measurement_speed_limit=measurement_speed_limit,
-                                             keep_unflagged_lab_conditions=False, quiet=True)
+        logger=logger,
+        dataframes=dataframes,
+        slice_width=500,
+        measurement_speed_limit=measurement_speed_limit,
+        keep_unflagged_lab_conditions=False,
+        quiet=True
+    )
 
     BikeActivitySurfaceTypePlotter().run(
         logger=logger,

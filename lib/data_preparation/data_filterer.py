@@ -24,8 +24,10 @@ class DataFilterer:
 
             # Exclude dataframes which contain surface type 'mixed'
             if any(value in dataframe.bike_activity_surface_type.values for value in [
+                "gravel",
                 "paved",
                 "concrete",
+                "concrete lanes",
                 "unhewn cobblestone",
                 "cobblestone",
                 "metal",

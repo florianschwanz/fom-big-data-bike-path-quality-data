@@ -50,13 +50,13 @@ class InputDataStatistics:
 
         valid_surface_types = [
             "asphalt",
-            "concrete lanes",
+            # "concrete lanes",
             "concrete plates",
             "paving stones",
             "sett",
-            "compacted",
+            # "compacted",
             "fine gravel",
-            "gravel"
+            # "gravel"
         ]
 
         for bike_activity_sample_uid, slice in slices.items():
@@ -72,5 +72,9 @@ class InputDataStatistics:
                     surface_types[bike_activity_surface_type] = 0
 
                 surface_types[bike_activity_surface_type] += 1
+
+        for surface_type, value in surface_types.items():
+            logger.log_line(f"{surface_type}: {value}")
+        logger.log_line(f"total: {len(slices.items())}")
 
         return surface_types
