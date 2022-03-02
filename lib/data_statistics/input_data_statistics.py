@@ -1,6 +1,7 @@
 import csv
 import glob
 
+import numpy as np
 from tracking_decorator import TrackingDecorator
 
 
@@ -28,6 +29,7 @@ class InputDataStatistics:
 
         slices = {}
         surface_types = {}
+        surface_types_list = []
 
         for file_path in glob.iglob(data_path + "/*.csv"):
 
@@ -74,7 +76,12 @@ class InputDataStatistics:
                 surface_types[bike_activity_surface_type] += 1
 
         for surface_type, value in surface_types.items():
+            surface_types_list.append(value)
             logger.log_line(f"{surface_type}: {value}")
+
         logger.log_line(f"total: {len(slices.items())}")
+
+        logger.log_line(f"mean: {np.mean(surface_types_list)}")
+        logger.log_line(f"standard deviation: {np.std(surface_types_list)}")
 
         return surface_types
